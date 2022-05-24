@@ -8,3 +8,5 @@
 - 이후 원격 접속 방법
 
 ![h2 원격 접속](https://user-images.githubusercontent.com/75058239/169972514-9f26f5dd-e898-4a40-9ecd-729aea9dd675.png)
+
+- h2 db 파일을 `~/h2/db` 디렉토리에 두었음
