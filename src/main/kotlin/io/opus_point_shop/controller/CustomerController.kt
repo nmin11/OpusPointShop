@@ -1,6 +1,7 @@
 package io.opus_point_shop.controller
 
 import io.opus_point_shop.dto.ChargeMoneyDto
+import io.opus_point_shop.entity.Customer
 import io.opus_point_shop.service.CustomerService
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
@@ -13,16 +14,16 @@ class CustomerController(private val customerService: CustomerService) {
     }
 
     @GetMapping("/all-customer")
-    fun findAllCustomer() {
-        customerService.findAllCustomer()
+    fun findAllCustomer(): MutableList<Customer> {
+        return customerService.findAllCustomer()
     }
 
     @GetMapping("/customer")
-    fun findByName(@RequestParam name: String) {
-        customerService.findByName(name)
+    fun findByName(@RequestParam name: String): Customer? {
+        return customerService.findByName(name)
     }
 
-    @PatchMapping("charge-money")
+    @PatchMapping("/charge-money")
     fun chargeMoney(@RequestBody dto: ChargeMoneyDto) {
         customerService.chargeMoney(dto)
     }

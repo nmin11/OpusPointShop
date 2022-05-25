@@ -8,6 +8,7 @@ import javax.persistence.*
 class ProductCart {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
+    var quantity: Int = 0
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")

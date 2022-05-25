@@ -11,17 +11,17 @@ class CustomerService(private val customerRepository: CustomerRepository) {
         customerRepository.save(Customer(name))
     }
 
-    fun findAllCustomer() {
-        customerRepository.findAll()
+    fun findAllCustomer(): MutableList<Customer> {
+        return customerRepository.findAll()
     }
 
-    fun findByName(name: String) {
-        customerRepository.findByName(name)
+    fun findByName(name: String): Customer? {
+        return customerRepository.findByName(name)
     }
 
     fun chargeMoney(dto: ChargeMoneyDto) {
         var customer: Customer = customerRepository.findById(dto.customerId).get()
-        customer.money = dto.amount
+        customer.money += dto.amount
         customerRepository.save(customer)
     }
 }

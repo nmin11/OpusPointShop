@@ -5,11 +5,11 @@ import javax.persistence.*
 
 @Entity
 @Getter
-class Cart {
+class Cart (customer: Customer) {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
 
-    @OneToOne(mappedBy = "cart")
+    @OneToOne(mappedBy = "cart", cascade = [CascadeType.ALL])
     lateinit var customer: Customer
 
     @OneToMany(mappedBy = "cart", cascade = [CascadeType.ALL])
