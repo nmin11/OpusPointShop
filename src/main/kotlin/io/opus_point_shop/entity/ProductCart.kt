@@ -5,16 +5,16 @@ import javax.persistence.*
 
 @Entity
 @Getter
-class ProductCart {
+class ProductCart (product: Product, cart: Cart, quantity: Int) {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
-    var quantity: Int = 0
+    var quantity: Int = quantity
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
-    lateinit var product: Product
+    var product: Product = product
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cart_id")
-    lateinit var cart: Cart
+    var cart: Cart = cart
 }

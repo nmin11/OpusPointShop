@@ -12,7 +12,4 @@ class Customer (name: String) {
     var name: String = name
     var money: Int = 0
     var point: Int = 0
-
-    @OneToOne @JoinColumn(name = "cart_id")
-    lateinit var cart: Cart
 }

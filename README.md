@@ -1,3 +1,9 @@
+## Version
+
+- Java 17 (LTS)
+- Spring Boot 2.7.0 (LTS)
+- h2 Database 2.1.212
+
 ## h2 데이터베이스 Setup
 
 - 버전 : Spring Boot LTS 버전과 호환되는 2.1.212 버전 사용

@@ -1,17 +1,15 @@
 package io.opus_point_shop.controller
 
+import io.opus_point_shop.dto.RegisterProductDto
 import io.opus_point_shop.entity.Product
 import io.opus_point_shop.service.ProductService
-import org.springframework.stereotype.Controller
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.*
 
-@Controller
+@RestController
 class ProductController(private val productService: ProductService) {
     @PostMapping("/product")
-    fun registerProduct(name: String, price: Int, quantity: Int, owner: String) {
-        productService.registerProduct(name, price, quantity, owner)
+    fun registerProduct(@RequestBody dto: RegisterProductDto) {
+        productService.registerProduct(dto)
     }
 
     @GetMapping("/all-product")
