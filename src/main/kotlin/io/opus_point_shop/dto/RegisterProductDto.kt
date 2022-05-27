@@ -4,5 +4,6 @@ data class RegisterProductDto(
     var name: String,
     var price: Int,
     var quantity: Int,
+    var pointRate: Int,
     var owner: String
 )

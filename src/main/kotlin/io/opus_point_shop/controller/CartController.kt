@@ -1,6 +1,7 @@
 package io.opus_point_shop.controller
 
 import io.opus_point_shop.dto.AddToCartDto
+import io.opus_point_shop.dto.RemoveFromCartDto
 import io.opus_point_shop.entity.Cart
 import io.opus_point_shop.service.CartService
 import org.springframework.web.bind.annotation.*
@@ -15,5 +16,10 @@ class CartController(private val cartService: CartService) {
     @PostMapping("/add-to-cart")
     fun addToCart(@RequestBody dto: AddToCartDto) {
         return cartService.addToCart(dto)
+    }
+
+    @DeleteMapping("/remove-from-cart")
+    fun removeFromCart(@RequestBody dto: RemoveFromCartDto) {
+        return cartService.removeFromCart(dto)
     }
 }

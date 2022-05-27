@@ -6,8 +6,10 @@ import io.opus_point_shop.entity.Customer
 import io.opus_point_shop.repository.CartRepository
 import io.opus_point_shop.repository.CustomerRepository
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
+@Transactional
 class CustomerService(
     private val customerRepository: CustomerRepository,
     private val cartRepository: CartRepository

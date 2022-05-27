@@ -10,7 +10,7 @@ class Cart (customer: Customer) {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
 
-    @OneToOne(cascade = [CascadeType.ALL])
+    @OneToOne
     var customer: Customer = customer
 
     @OneToMany(mappedBy = "cart", cascade = [CascadeType.ALL])
