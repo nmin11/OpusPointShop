@@ -1,5 +1,6 @@
 package io.opus_point_shop.entity
 
+import io.opus_point_shop.dto.ProductDto
 import lombok.Getter
 import javax.persistence.*
 
@@ -17,4 +18,10 @@ class Product (name: String, price: Int, quantity: Int, pointRate: Int, owner: S
 
     @OneToMany(mappedBy = "product", cascade = [CascadeType.ALL])
     var carts: MutableList<ProductCart> = mutableListOf()
+
+    fun dtoToEntity(product: Product): ProductDto {
+        return ProductDto(
+            product.id, product.name, product.price, product.quantity, product.pointRate, product.owner
+        )
+    }
 }

@@ -2,17 +2,14 @@ package io.opus_point_shop.controller
 
 import io.opus_point_shop.dto.ChargeMoneyDto
 import io.opus_point_shop.entity.Customer
-import io.opus_point_shop.service.CartService
 import io.opus_point_shop.service.CustomerService
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-class CustomerController(
-    private val customerService: CustomerService,
-    private val cartService: CartService,
-) {
+class CustomerController(private val customerService: CustomerService) {
     @PostMapping("/customer")
-    fun createCustomer(@RequestParam name: String): Customer? {
+    fun createCustomer(@RequestParam name: String): ResponseEntity<Any> {
         return customerService.createCustomer(name)
     }
 
@@ -27,7 +24,7 @@ class CustomerController(
     }
 
     @PatchMapping("/charge-money")
-    fun chargeMoney(@RequestBody dto: ChargeMoneyDto) {
-        customerService.chargeMoney(dto)
+    fun chargeMoney(@RequestBody dto: ChargeMoneyDto): ResponseEntity<Any> {
+        return customerService.chargeMoney(dto)
     }
 }
