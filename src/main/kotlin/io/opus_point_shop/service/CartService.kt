@@ -19,13 +19,14 @@ class CartService(
     private val productRepository: ProductRepository,
     private val productCartRepository: ProductCartRepository
 ) {
-    fun findByCustomer(customerId: Long): MutableList<Pair<String, Int>> {
+    fun findByCustomer(customerId: Long): MutableList<Triple<String, Int, Int>> {
         val customer = customerRepository.findById(customerId).get()
         val cart = cartRepository.findByCustomer(customer).get()
         val productCarts = productCartRepository.findAllByCart(cart)
-        val list: MutableList<Pair<String, Int>> = mutableListOf()
+        val list: MutableList<Triple<String, Int, Int>> = mutableListOf()
         for (productCart in productCarts) {
-            list.add(Pair(productCart.product.name, productCart.quantity))
+            val price = productCart.product.price * productCart.quantity
+            list.add(Triple(productCart.product.name, productCart.quantity, price))
         }
         return list
     }
