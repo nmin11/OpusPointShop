@@ -23,7 +23,7 @@ class CustomerController(private val customerService: CustomerService) {
         return customerService.findByName(name)
     }
 
-    @PatchMapping("/charge-money")
+    @PostMapping("/charge-money")
     fun chargeMoney(@RequestBody dto: ChargeMoneyDto): ResponseEntity<Any> {
         return customerService.chargeMoney(dto)
     }

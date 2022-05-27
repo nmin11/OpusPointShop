@@ -4,6 +4,8 @@ import io.opus_point_shop.repository.CartRepository
 import io.opus_point_shop.repository.CustomerRepository
 import io.opus_point_shop.repository.ProductCartRepository
 import io.opus_point_shop.repository.ProductRepository
+import org.apache.logging.log4j.LogManager
+import org.apache.logging.log4j.Logger
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -16,7 +18,10 @@ class PurchaseService(
     private val productRepository: ProductRepository,
     private val productCartRepository: ProductCartRepository
 ) {
+    private val logger: Logger = LogManager.getLogger()
+
     fun purchaseByMoney(customerId: Long): ResponseEntity<Any> {
+        logger.info("customer id = $customerId")
         val customer = customerRepository.findById(customerId)
         if (customer.isEmpty) {
             return ResponseEntity.status(400).body("해당 유저는 존재하지 않습니다.")

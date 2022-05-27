@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Opus Point Shop</title>
+</head>
+<body>
+<table border="1">
+  <h3>Customer List (이름을 클릭해서 장바구니로 이동)</h3>
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>money</th>
+    <th>point</th>
+  </tr>
+  <tr th:each="customer : ${customers}">
+    <td th:text="${customer.id}">id</td>
+    <td><a th:text="${customer.name}" th:href="@{/cart(name=${customer.name})}">name</a></td>
+    <td th:text="${customer.money}">money</td>
+    <td th:text="${customer.point}">price</td>
+  </tr>
+</table>
+
+<br/>
+
+<h3>Customer 돈 충전 (id / 액수)</h3>
+<form th:action="@{/charge}" th:object="${chargeMoneyDto}" method="post">
+  <input type="number" th:field="*{customerId}" placeholder="customer id">
+  <input type="number" th:field="*{amount}" place="충전 금액">
+  <button class="submit">Charge Money !!!</button>
+</form>
+
+<br/>
+
+<table border="1">
+  <h3>Product List</h3>
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>price</th>
+    <th>quantity</th>
+    <th>point rate</th>
+    <th>owner</th>
+  </tr>
+  <tr th:each="product : ${products}">
+    <td th:text="${product.id}">id</td>
+    <td th:text="${product.name}">name</td>
+    <td th:text="${product.price}">price</td>
+    <td th:text="${product.quantity}">quantity</td>
+    <td th:text="${product.pointRate}">point rate</td>
+    <td th:text="${product.owner}">owner</td>
+  </tr>
+</table>
+
+<br/>
+
+<h3>상품 장바구니에 담기 (회원 id / 상품 id / 상품 수량)</h3>
+<form th:action="@{/add-cart}" th:object="${addToCartDto}" method="post">
+  <input type="number" th:field="*{customerId}" placeholder="customer id">
+  <input type="number" th:field="*{productId}" place="product id">
+  <input type="number" th:field="*{quantity}" place="상품 수량">
+  <button class="submit">Add To Cart</button>
+</form>
+</body>
+</html>

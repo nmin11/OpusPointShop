@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Cart</title>
+</head>
+<body>
+<table border="1">
+  <h3>Cart List</h3>
+  <tr>
+    <th>customer name</th>
+    <th>product name</th>
+    <th>상품별 합계</th>
+  </tr>
+  <tr th:each="cart : ${cartList}">
+    <td th:text="${cart.first}">customer name</td>
+    <td th:text="${cart.second}">product name</td>
+    <td th:text="${cart.third}">상품별 합계</td>
+  </tr>
+</table>
+
+<form th:action="@{/pay-to-money}" th:object="${payToMoney}" method="post">
+  <input type="hidden" th:field="*{customerId}" th:value="${customerId}">
+  <button class="submit">돈으로 구매하기</button>
+</form>
+
+<form th:action="@{/pay-to-point}" th:object="${payToPoint}" method="post">
+  <input type="hidden" th:value="${customerId}">
+  <button class="submit">포인트로 구매하기</button>
+</form>
+</body>
+</html>

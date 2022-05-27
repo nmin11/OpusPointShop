@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 class CartController(private val cartService: CartService) {
-    @GetMapping("/cart")
+    @GetMapping("/cart-list")
     fun findByCustomer(@RequestParam customerId: Long): MutableList<Triple<String, Int, Int>> {
         return cartService.findByCustomer(customerId)
     }
