@@ -21,6 +21,12 @@
 
 <br/>
 
+## ERD
+
+![ERD](https://user-images.githubusercontent.com/75058239/170810957-7af71cf3-0e1a-49a3-8f96-120d56e75b8d.png)
+
+<br/>
+
 ## Thymeleaf view
 
 - index page
