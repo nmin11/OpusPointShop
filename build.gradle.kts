@@ -35,6 +35,8 @@ dependencies {
 	runtimeOnly("com.h2database:h2")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("io.kotlintest:kotlintest-runner-junit5:3.4.2")
+	testImplementation("io.mockk:mockk:1.12.4")
 }
 
 tasks.withType<KotlinCompile> {
@@ -46,4 +48,5 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+	testLogging.showStandardStreams = true
 }

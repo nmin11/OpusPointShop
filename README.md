@@ -2,7 +2,7 @@
 
 - Java 17 (LTS)
 - Spring Boot 2.7.0 (LTS)
-- h2 Database 2.1.212
+- h2 Database 2.1.212 (LTS)
 
 ## h2 데이터베이스 Setup
 
@@ -16,3 +16,8 @@
 ![h2 원격 접속](https://user-images.githubusercontent.com/75058239/169972514-9f26f5dd-e898-4a40-9ecd-729aea9dd675.png)
 
 - h2 db 파일을 `~/h2/db` 디렉토리에 두었음
+
+## Thymeleaf view
+
+- index page
+- cart page
