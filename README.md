@@ -20,4 +20,9 @@
 ## Thymeleaf view
 
 - index page
+
+![index page](https://user-images.githubusercontent.com/75058239/170810104-20e5ff93-5c46-4671-bae7-f147867191a6.png)
+
 - cart page
+
+![cart page](https://user-images.githubusercontent.com/75058239/170810110-9bf3b0d3-f7f5-497a-be0f-cdae2ab19bda.png)
