@@ -29,4 +29,4 @@
 
 - cart page
 
-![cart page](https://user-images.githubusercontent.com/75058239/170810110-9bf3b0d3-f7f5-497a-be0f-cdae2ab19bda.png)
+![cart page](https://user-images.githubusercontent.com/75058239/170810257-73e5421e-ed83-42b7-ae31-c85af8240fbc.png)
