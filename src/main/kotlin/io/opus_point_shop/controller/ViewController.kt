@@ -63,7 +63,6 @@ class ViewController(
         logger.info("remove product - customer id : ${dto.customerId}")
         logger.info("remove product - product name : ${dto.productName}")
         val productId: Long = productController.findByName(dto.productName)?.id!!
-        logger.info("추출한 상품 id $productId")
         val result = cartController.removeFromCart(RemoveFromCartDto(dto.customerId, productId))
         logger.info("상품 제거 결과 : $result")
         return "redirect:"
