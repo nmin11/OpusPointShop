@@ -1,8 +1,6 @@
 package io.opus_point_shop.controller
 
-import io.opus_point_shop.dto.AddToCartDto
-import io.opus_point_shop.dto.ChargeMoneyDto
-import io.opus_point_shop.dto.PurchaseDto
+import io.opus_point_shop.dto.*
 import io.opus_point_shop.service.PurchaseService
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
@@ -53,10 +51,22 @@ class ViewController(
         val cartList = customer?.id?.let { cartController.findByCustomer(it) }
         logger.info("customer id = " + customer?.id)
         model.addAttribute("customerId", customer?.id)
+        model.addAttribute("removeProduct", RemoveProductDto(0, ""))
         model.addAttribute("payToMoney", customer?.id?.let { PurchaseDto(it) })
         model.addAttribute("payToPoint", customer?.id?.let { PurchaseDto(it) })
         model.addAttribute("cartList", cartList)
         return "/cart"
+    }
+
+    @PostMapping("/remove-product")
+    fun removeProduct(@ModelAttribute("removeProduct") dto: RemoveProductDto): String {
+        logger.info("remove product - customer id : ${dto.customerId}")
+        logger.info("remove product - product name : ${dto.productName}")
+        val productId: Long = productController.findByName(dto.productName)?.id!!
+        logger.info("추출한 상품 id $productId")
+        val result = cartController.removeFromCart(RemoveFromCartDto(dto.customerId, productId))
+        logger.info("상품 제거 결과 : $result")
+        return "redirect:"
     }
 
     @PostMapping("/pay-to-money")

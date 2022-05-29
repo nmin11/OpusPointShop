@@ -51,6 +51,7 @@ class PurchaseService(
         customerRepository.save(customer.get())
         cart.products = mutableListOf()
         cartRepository.save(cart)
+        productCartRepository.deleteAllByCart(cart)
         return ResponseEntity.status(200).body("성공적으로 구매했습니다.")
     }
 
@@ -75,6 +76,7 @@ class PurchaseService(
         customerRepository.save(customer)
         cart.products = mutableListOf()
         cartRepository.save(cart)
+        productCartRepository.deleteAllByCart(cart)
         return ResponseEntity.status(200).body("성공적으로 구매했습니다.")
     }
 }

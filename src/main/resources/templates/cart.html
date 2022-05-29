@@ -11,11 +11,19 @@
     <th>상품명</th>
     <th>담은 수량</th>
     <th>상품별 합계</th>
+    <th>장바구니에서 제거</th>
   </tr>
   <tr th:each="cart : ${cartList}">
     <td th:text="${cart.first}">상품명</td>
     <td th:text="${cart.second}">담은 수량</td>
     <td th:text="${cart.third}">상품별 합계</td>
+    <td>
+      <form th:action="@{/remove-product}" th:object="${removeProduct}" method="post">
+        <input type="hidden" th:field="*{customerId}" th:value="${customerId}">
+        <input type="hidden" th:field="*{productName}" th:value="${cart.first}">
+        <button class="submit">상품 제거</button>
+      </form>
+    </td>
   </tr>
 </table>
 
@@ -25,7 +33,7 @@
 </form>
 
 <form th:action="@{/pay-to-point}" th:object="${payToPoint}" method="post">
-  <input type="hidden" th:value="${customerId}">
+  <input type="hidden" th:field="*{customerId}" th:value="${customerId}">
   <button class="submit">포인트로 구매하기</button>
 </form>
 </body>

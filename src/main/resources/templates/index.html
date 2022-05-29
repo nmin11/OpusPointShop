@@ -24,7 +24,7 @@
 <h3>Customer 돈 충전 (id / 액수)</h3>
 <form th:action="@{/charge}" th:object="${chargeMoneyDto}" method="post">
   <input type="number" th:field="*{customerId}" placeholder="customer id">
-  <input type="number" th:field="*{amount}" place="충전 금액">
+  <input type="number" th:field="*{amount}" placeholder="충전 금액">
   <button class="submit">Charge Money !!!</button>
 </form>
 
@@ -51,8 +51,8 @@
 <h3>상품 장바구니에 담기 (회원 id / 상품 id / 상품 수량)</h3>
 <form th:action="@{/add-cart}" th:object="${addToCartDto}" method="post">
   <input type="number" th:field="*{customerId}" placeholder="customer id">
-  <input type="number" th:field="*{productId}" place="product id">
-  <input type="number" th:field="*{quantity}" place="상품 수량">
+  <input type="number" th:field="*{productId}" placeholder="product id">
+  <input type="number" th:field="*{quantity}" placeholder="상품 수량">
   <button class="submit">Add To Cart</button>
 </form>
 </body>
