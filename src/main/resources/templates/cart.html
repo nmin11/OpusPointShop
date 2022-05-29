@@ -7,12 +7,11 @@
 <body>
 <table border="1">
   <h3>Cart List</h3>
-  <span>Customer ID : </span><span th:text="${customerId}"/>
   <tr>
     <th>상품명</th>
     <th>담은 수량</th>
     <th>상품별 합계</th>
-    <th>장바구니에서 제거 (Customer ID와 상품명을 다시 입력해주세요. 😅)</th>
+    <th>장바구니에서 제거</th>
   </tr>
   <tr th:each="cart : ${cartList}">
     <td th:text="${cart.first}">상품명</td>
@@ -20,8 +19,8 @@
     <td th:text="${cart.third}">상품별 합계</td>
     <td>
       <form th:action="@{/remove-product}" th:object="${removeProduct}" method="post">
-        <input type="number" th:field="*{customerId}" placeholder="회원님의 id를 다시 입력해주세요.">
-        <input type="text" th:field="*{productName}" placeholder="상품명을 다시 입력해주세요.">
+        <input type="hidden" name="customerId" th:value="${customerId}">
+        <input type="hidden" name="productName" th:value="${cart.first}">
         <button class="submit">상품 제거</button>
       </form>
     </td>
