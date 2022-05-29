@@ -35,7 +35,7 @@
 
 - cart page
 
-![cart page](https://user-images.githubusercontent.com/75058239/170810257-73e5421e-ed83-42b7-ae31-c85af8240fbc.png)
+![cart page](https://user-images.githubusercontent.com/75058239/170870271-d286adf7-1de7-4111-90ba-ae0d0e1e06bc.png)
 
 ## 세부 구현 사항
 
