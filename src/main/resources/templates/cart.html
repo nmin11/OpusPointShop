@@ -19,8 +19,8 @@
     <td th:text="${cart.third}">상품별 합계</td>
     <td>
       <form th:action="@{/remove-product}" th:object="${removeProduct}" method="post">
-        <input type="hidden" name="customerId" th:value="${customerId}">
-        <input type="hidden" name="productName" th:value="${cart.first}">
+        <input type="hidden" th:value="${customerId}">
+        <input type="hidden" th:value="${cart.first}">
         <button class="submit">상품 제거</button>
       </form>
     </td>
